@@ -1,0 +1,56 @@
+{
+  "name": "component",
+  "version": "0.0.1",
+  "description": "Component for the AngularJS framework",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/volusion-angular/component"
+  },
+  "keywords": [
+    "angularjs",
+    "component"
+  ],
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/volusion-angular/component/issues"
+  },
+  "homepage": "https://github.com/volusion-angular/component",
+  "devDependencies": {
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-htmlmin": "^0.2.0",
+    "grunt-karma": "^0.8.2",
+    "grunt-newer": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "browserify": "^3.38.0",
+    "grunt-browserify": "^2.0.1",
+    "chai-jquery": "^1.2.1",
+    "karma-chai-jquery": "^1.0.0",
+    "karma-jquery": "^0.1.0",
+    "load-grunt-tasks": "^0.4.0",
+    "mocha": "^1.18.2",
+    "karma-mocha": "^0.1.3",
+    "partialify": "^3.1.1",
+    "time-grunt": "^0.3.1",
+    "jshint-stylish": "^0.1.5",
+    "browserify-shim": "^3.4.1"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "partialify"
+    ]
+  },
+  "browser": {
+    "angular": "./angular.js"
+  },
+  "browserify-shim": {
+    "angular": "global:angular"
+  }
+}
