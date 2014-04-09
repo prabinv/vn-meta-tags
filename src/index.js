@@ -1,4 +1,5 @@
-﻿'use strict';
+﻿/* global angular: true */
+'use strict';
 
 var angular = require('angular');
 
