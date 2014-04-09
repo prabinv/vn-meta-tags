@@ -5,7 +5,7 @@ module.exports = [
     return {
       restrict: 'A',
       controller: 'productOptionsCtrl',
-      templateUrl: 'views/product-options.html'
+      templateUrl: 'product-options.html'
     };
   }
 ];

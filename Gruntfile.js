@@ -1,11 +1,4 @@
-﻿// Generated on 2014-01-09 using generator-angular 0.7.1
-'use strict';
-
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
+﻿'use strict';
 
 module.exports = function (grunt) {
 
@@ -28,21 +21,21 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       views: {
-        files: ['<%= yeoman.app %>/views/{,*/}*.html'],
+        files: ['<%= yeoman.app %>/*.html'],
         tasks: ['htmlmin', 'browserify:test', 'karma'],
         options: {
           livereload: true
         }
       },
       js: {
-        files: ['<%= yeoman.app %>/index.js', '<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/*.js'],
         tasks: ['newer:jshint:all', 'copy', 'browserify:test', 'karma'],
         options: {
           livereload: true
         }
       },
       jsTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       gruntfile: {
@@ -105,13 +98,13 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/*.js'
       ],
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/*.js']
       }
     },
 
@@ -137,7 +130,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: 'views/{,*/}*.html',
+          src: '*.html',
           dest: '.tmp'
         }]
       }
@@ -148,7 +141,7 @@ module.exports = function (grunt) {
       scripts: {
         expand: true,
         cwd: '<%= yeoman.app %>',
-        src: ['index.js', 'scripts/{,*/}*.js'],
+        src: ['*.js'],
         dest: '.tmp'
       }
     },
