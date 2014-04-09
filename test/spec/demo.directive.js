@@ -1,21 +1,21 @@
 ﻿'use strict';
 
 // ReSharper disable WrongExpressionStatement
-describe('Directive: vn.productOptions', function() {
+describe('Directive: demo', function() {
 
   // load the directive's module
-  beforeEach(module('vn.productOptions'));
+  beforeEach(module('demo'));
 
   var $component;
 
   beforeEach(inject(function($rootScope, $compile) {
     var $scope = $rootScope.$new();
-    var html = '<div data-product-options></div>';
+    var html = '<div data-demo></div>';
     $component = $($compile(angular.element(html))($scope));
     $rootScope.$digest();
   }));
 
-  it('does foo', function() {
-    expect($component.html()).to.eq('<p>bar</p>');
+  it('contains demo text', function() {
+    expect($component.html()).to.eq('<p>This is the demo view.</p>');
   });
 });

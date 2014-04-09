@@ -2,9 +2,9 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('vn.productOptions', [])
+module.exports = angular.module('demo', [])
   .run(function($templateCache) {
-    $templateCache.put('product-options.html', require('./product-options.html'));
+    $templateCache.put('demo.html', require('./demo.html'));
   })
-  .directive('productOptions', require('./product-options.directive.js'))
-  .controller('productOptionsCtrl', require('./product-options.controller.js'));
+  .directive('demo', require('./demo.directive.js'))
+  .controller('DemoCtrl', require('./demo.controller.js'));
