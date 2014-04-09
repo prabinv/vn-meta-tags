@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         }
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/index.js', '<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'copy', 'browserify:test', 'karma'],
         options: {
           livereload: true
@@ -94,11 +94,6 @@ module.exports = function (grunt) {
             '<%= yeoman.app %>'
           ]
         }
-      },
-      dist: {
-        options: {
-          base: '<%= yeoman.dist %>'
-        }
       }
     },
 
@@ -122,16 +117,6 @@ module.exports = function (grunt) {
 
     // Empties folders to start fresh
     clean: {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
-          ]
-        }]
-      },
       server: '.tmp'
     },
 
@@ -158,19 +143,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Allow the use of non-minsafe AngularJS files. Automatically makes it
-    // minsafe compatible so Uglify does not destroy the ng references
-    ngmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp',
-          src: 'index.js',
-          dest: '.tmp'
-        }]
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
       scripts: {
@@ -178,14 +150,6 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>',
         src: ['index.js', 'scripts/{,*/}*.js'],
         dest: '.tmp'
-      }
-    },
-
-    uglify: {
-      scripts: {
-        files: {
-          '<%= yeoman.dist %>/component.min.js': ['.tmp/component.js']
-        }
       }
     },
 
@@ -198,17 +162,12 @@ module.exports = function (grunt) {
     },
 
     browserify: {
-      dist: {
-        files: {
-          '.tmp/component.js': ['.tmp/index.js']
-        }
-      },
       test: {
         options: {
           debug: true
         },
         files: {
-          '.tmp/component.js': ['.tmp/index.js']
+          '.tmp/index.js': ['.tmp/index.js']
         }
       }
     }
@@ -221,10 +180,10 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'newer:jshint',
-      'clean:server',
+      'clean',
       'copy',
       'htmlmin',
-      'browserify:test',
+      'browserify',
       'connect:livereload',
       'watch'
     ]);
@@ -236,21 +195,12 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'clean:server',
-    'copy',
-    'htmlmin',
-    'browserify:test',
-    'connect:test',
-    'karma'
-  ]);
-
-  grunt.registerTask('build', [
     'clean',
     'copy',
     'htmlmin',
-    'ngmin',
-    'browserify:dist',
-    'uglify'
+    'browserify',
+    'connect:test',
+    'karma'
   ]);
 
   grunt.registerTask('default', [
