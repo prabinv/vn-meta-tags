@@ -53,17 +53,14 @@ module.exports = [
         scope.$watch('title', setTitleTag);
         scope.$watch('description', setDescription);
         scope.$watch('keywords', setKeywords);
-
-        setTitleTag(scope.title);
-        setDescription(scope.description);
-        setKeywords(scope.keywords);
-        appendElement(scope.toAppend);
-
-        if (typeof scope.robots !== 'undefined' &&
-          JSON.parse(scope.robots) === true) {
-          setMetaTag('robots', 'index,follow');
-          setMetaTag('GOOGLEBOT', 'INDEX,FOLLOW');
-        }
+        scope.$watch('toAppend', appendElement);
+        scope.$watch('robots', function(newValue) {
+          if (typeof newValue !== 'undefined' &&
+            JSON.parse(newValue) === true) {
+            setMetaTag('robots', 'index,follow');
+            setMetaTag('GOOGLEBOT', 'INDEX,FOLLOW');
+          }
+        });
       }
     };
   }
