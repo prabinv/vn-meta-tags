@@ -4,7 +4,7 @@
   "publishConfig": {
     "registry": "http://volusion.registry.nodejitsu.com/"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Meta tags component for Volusion stores",
   "main": "src/index.js",
   "scripts": {
