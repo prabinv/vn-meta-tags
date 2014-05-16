@@ -4,7 +4,7 @@
 describe('Directive: vnMetaTags', function() {
 
   // load the directive's module
-  beforeEach(module('vn.metaTags'));
+  beforeEach(module('vnMetaTags'));
 
   var $rootScope;
   var $compile;
